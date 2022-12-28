@@ -44,9 +44,10 @@ export default function ticketCreationPage() {
       // Get the response data from server as JSON.
       // If server returns the name submitted, that means the form works.
       const result = await response.json()
+      console.log(result)
       setIsTicketsCreated(true)
       setTicketData(result)
-      alert(`Is this your full name: ${result.data}`)
+    //   alert(result.data)
     }
     return (
         <>
