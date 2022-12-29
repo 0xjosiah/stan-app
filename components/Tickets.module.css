@@ -1,0 +1,13 @@
+.ticket {
+    margin: 1em;
+    padding: 1em;
+    color: white;
+    border: 1px solid white;
+}
+
+.ticketsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+}

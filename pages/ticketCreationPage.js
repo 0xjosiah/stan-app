@@ -1,14 +1,15 @@
 import Head from "next/head"
 import styles from "../styles/Form.module.css"
-import AvailableTickets from "../components/AvailableTickets"
+// import AvailableTickets from "../components/AvailableTickets"
 import { useState } from "react"
 
 export default function ticketCreationPage() {
     const [isTicketsCreated, setIsTicketsCreated] = useState(false)
     const [ticketData, setTicketData] = useState({})
+    const [ticketElements, setTicketElements] = useState(null);
 
     // Handles the submit event on form submit.
-    const handleSubmit = async (event) => {
+    const handleSubmit = (event) => {
       // Stop the form from submitting and refreshing the page.
       event.preventDefault()
   
@@ -21,34 +22,48 @@ export default function ticketCreationPage() {
       }
   
       // Send the data to the server in JSON format.
-      const JSONdata = JSON.stringify(data)
+    //   const JSONdata = JSON.stringify(data)
   
       // API endpoint where we send form data.
-      const endpoint = '/api/ticketCreationForm'
+    //   const endpoint = '/api/ticketCreationForm'
   
       // Form the request for sending data to the server.
-      const options = {
-        // The method is POST because we are sending data.
-        method: 'POST',
-        // Tell the server we're sending JSON.
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        // Body of the request is the JSON data we created above.
-        body: JSONdata,
-      }
+    //   const options = {
+    //     // The method is POST because we are sending data.
+    //     method: 'POST',
+    //     // Tell the server we're sending JSON.
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //     },
+    //     // Body of the request is the JSON data we created above.
+    //     body: JSONdata,
+    //   }
   
-      // Send the form data to our forms API on Vercel and get a response.
-      const response = await fetch(endpoint, options)
+    //   // Send the form data to our forms API on Vercel and get a response.
+    //   const response = await fetch(endpoint, options)
   
-      // Get the response data from server as JSON.
-      // If server returns the name submitted, that means the form works.
-      const result = await response.json()
-      console.log(result)
+    //   // Get the response data from server as JSON.
+    //   // If server returns the name submitted, that means the form works.
+    //   const result = await response.json()
+    //   console.log(result)
       setIsTicketsCreated(true)
-      setTicketData(result)
+      setTicketData(data)
+      setTicketElements(() => {
+        return new Array(ticketData.ticketCount).fill().map(() => {
+            // const { act, ticketCount, venue, price } = ticketData
+            return (
+                <div className={styles.ticket} key='TODO'>
+                    <h3>{ticketData.act}</h3>
+                    <p>Playing at {ticketData.venue}</p>
+                    <p>Price: {ticketData.price}</p>
+                </div>
+            )
+        })
+      })
+      console.log(ticketElements)
     //   alert(result.data)
     }
+
     return (
         <>
             <Head>
@@ -74,7 +89,11 @@ export default function ticketCreationPage() {
                 <button className={styles.btn} type="submit">Submit</button>
             </form>
             {isTicketsCreated &&
-                <AvailableTickets ticketData={ticketData}/>
+                <div className={styles.ticket} key='TODO'>
+                    <h3 className={styles.actName}> An evening with {ticketData.act}</h3>
+                    <p className={styles.venue} >Playing at {ticketData.venue}</p>
+                    <p>Price: {ticketData.price}</p>
+                </div>
             }
         </>
     )

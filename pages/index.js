@@ -23,14 +23,14 @@ export default function Home() {
             Get started by creating some tickets
           </p>
           <div>
-            <a
+            {/* <a
               href={linkToPortfolio}
               target="_blank"
               // rel="noopener noreferrer"
-            >
+            > */}
               By{' '}
               <p>0xjosiah</p>
-            </a>
+            {/* </a> */}
           </div>
         </div>
 
