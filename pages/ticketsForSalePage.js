@@ -11,6 +11,7 @@ export default function availableTickets(ticketData) {
     return (
         <>
             {ticketElements}
+            <h1>This is a placeholder</h1>
         </>
     )
 }

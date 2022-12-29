@@ -7,7 +7,7 @@ import Link from 'next/link'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-  const linkToPortfolio = null // TODO fill in portfolio link
+  const linkToPortfolio = "https://0xjosiah.xyz" // TODO fill in portfolio link
 
   return (
     <>
@@ -23,14 +23,14 @@ export default function Home() {
             Get started by creating some tickets
           </p>
           <div>
-            {/* <a
+            <a
               href={linkToPortfolio}
               target="_blank"
-              // rel="noopener noreferrer"
-            > */}
+              rel="noopener noreferrer"
+            >
               By{' '}
               <p>0xjosiah</p>
-            {/* </a> */}
+            </a>
           </div>
         </div>
 
@@ -58,12 +58,12 @@ export default function Home() {
 
         <div className={styles.grid}>
           <div className={styles.card} >
-            <Link className={inter.className} href="/ticketCreationPage">
+            <Link className={inter.className} href="/ticketCreatorPage">
               Create Tickets <span>-&gt;</span>
             </Link>
           </div>
           <div className={styles.card} >
-            <Link className={inter.className} href="/ticketCreationPage">
+            <Link className={inter.className} href="/ticketsForSalePage">
               View Tickets <span>-&gt;</span>
             </Link>
           </div>
