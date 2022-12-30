@@ -29,7 +29,7 @@ export default function AvailableTickets({act, venue, price, ticketCount}) {
     const ticketElements = new Array(ticketCount).fill().map(() => {
         // const { act, ticketCount, venue, price } = ticketData
         return (
-            <div className={styles.ticket} key='TODO'>
+            <div className='' key='TODO'>
                 <h3>{act}</h3>
                 <p>Playing at {venue}</p>
                 <p>Price: {price}</p>
@@ -38,7 +38,7 @@ export default function AvailableTickets({act, venue, price, ticketCount}) {
     })
 
     return (
-        <div className={styles.ticketsContainer}>
+        <div className=''>
             {ticketElements}
         </div>
     )
