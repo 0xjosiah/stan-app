@@ -1,4 +1,5 @@
 import styles from '../styles/Home.module.css'
+import Link from 'next/link'
 
 export default function Nav() {
     const linkToPortfolio = "https://0xjosiah.xyz"
@@ -6,7 +7,7 @@ export default function Nav() {
     return (
         <div className={styles.description}>
             <p>
-                Get started by creating some tickets
+                <Link href="/">Home</Link>
             </p>
             <div>
                 <a
